@@ -1,0 +1,5 @@
+#!/usr/bin/expect
+# Spawn a shell, then allow the user to interact with it.
+# The new shell will have a good enough TTY to run tools like ssh, su and login
+spawn bash
+interact
