@@ -1,0 +1,362 @@
+
+  acm: 
+    subcommands: 
+      - acm_limit
+  acq: 
+    description: ACQ/UCP Control
+    arguments: acq {on | off | toggle}
+  adaptor: 
+    subcommands: 
+      - adaptor_stats
+  atdma: 
+    subcommands: 
+      - atdma_dumpCaptureBET
+      - atdma_triggerCapture
+      - atdma_UnitTest
+      - atdma_subframeLeadinAdjust
+  beam: 
+    subcommands: 
+      - beam_switch
+  block: 
+    description: Prints memory block info
+    arguments: ""
+  board: 
+    subcommands: 
+      - board_info
+      - board_features
+      - board_limit
+  btp: 
+    subcommands: 
+      - btp_sof
+      - btp_test
+      - btp_fake
+      - btp_arrival
+      - btp_show_count
+      - btp_stats
+  btpsToIgnore: 
+    description: sets number of btps To Ignore
+    arguments: n
+  channel: 
+    subcommands: 
+      - channel_list
+      - channel_read
+  classifier: 
+    description: classifier command
+    arguments: ""
+  cliformat: 
+    description: set console output format
+    arguments: <text|json|jsonmin>
+  clouser: 
+    subcommands: 
+      - clouser_test
+  commands: 
+    description: Execute multiple commands separated by semicolons
+    arguments: command1; command2 [...]
+  controller: 
+    subcommands: 
+      - controller_get
+  dfoe: 
+    description: dfoe control
+    arguments: ""
+  dfoerxonly: 
+    description: Rx-Only Dynamic Features and Options exchange
+    arguments: ""
+  dhcp: 
+    description: DHCP server command
+    arguments: ""
+  DID: 
+    description: Show modem identification number
+    arguments: ""
+  diseqc: 
+    subcommands: 
+      - diseqc_init
+      - diseqc_22K
+      - diseqc_tx
+      - diseqc_rx
+      - diseqc_dump
+  dmesg: 
+    description: Logger messages
+    arguments: ""
+  dns: 
+    description: DNS control
+    arguments: ""
+  eth: 
+    subcommands: 
+      - eth_stats
+  EventDumper: 
+    description: Start Event Dumper
+    arguments: "[ip_addr [subFrameCountReportInterval] [numReports] [DeveloperMsgSelectFlags]] | off"
+  EventDumperDstUdpPort: 
+    description: UDP port where EventDumper sends X1 statistics
+    arguments: udpPortNum
+  events: 
+    description: Display worker statistics
+    arguments: ""
+  firmware: 
+    subcommands: 
+      - firmware_list
+      - firmware_reboot
+      - firmware_copy
+      - firmware_compare
+      - firmware_delete
+      - firmware_markvalid
+      - firmware_incstarts
+  flags: 
+    description: Get/set debugging flags
+    arguments: <on|off>
+  flash: 
+    subcommands: 
+      - flash_peek
+      - flash_set
+      - flash_del
+      - flash_read
+      - flash_write
+  freqErrsDebugDump: 
+    description: dump detected frequency programming mismatches
+    arguments: startIdx count
+  help: 
+    description: Show this help
+    arguments: ""
+  i2c: 
+    subcommands: 
+      - i2c_poke
+      - i2c_peek
+  iDirect: 
+    subcommands: 
+      - iDirect_commands
+  inroute: 
+    subcommands: 
+      - inroute_power
+      - inroute_clear
+  irq: 
+    subcommands: 
+      - irq_stats
+  l2: 
+    subcommands: 
+      - l2_classifier
+  laninfo: 
+    description: View IP address/netmask
+    arguments: ""
+  led: 
+    description: Fiddle with LEDs
+    arguments: ""
+  leds: 
+    description: Read LEDs status
+    arguments: ""
+  ll: 
+    description: Link Layer control
+    arguments: ""
+  llchop: 
+    subcommands: 
+      - llchop_metric
+      - llchop_short_headers
+      - llchop_packing
+  log: 
+    description: Control logger
+    arguments: ""
+  mac: 
+    subcommands: 
+      - mac_stats
+  ncr: 
+    subcommands: 
+      - ncr_stats
+      - ncr_freeze
+  net: 
+    subcommands: 
+      - net_udp
+      - net_tcp
+  nominalInrouteId: 
+    description: shows which carrier is nominal for this remote
+    arguments: DEVELOPER ONLY
+  num: 
+    subcommands: 
+      - num_subframes
+  options: 
+    subcommands: 
+      - options_get
+      - options_find
+      - options_set
+      - options_del
+      - options_publish
+      - options_read
+      - options_write
+      - options_active
+  os: 
+    subcommands: 
+      - os_time
+      - os_delay
+  panic: 
+    description: This will make your board crash
+    arguments: ""
+  peek: 
+    description: Read an arbitrary number of values from an arbitrary memory location
+    arguments: <address> <len>
+  ping: 
+    description: ping a host
+    arguments: ping <address> <size> <num packets> <interval>
+  pkgrcv: 
+    subcommands: 
+      - pkgrcv_info
+  pm: 
+    subcommands: 
+      - pm_stats
+      - pm_config
+      - pm_arp
+      - pm_history
+      - pm_statsvlan
+  poke: 
+    description: Write an arbitrary value to an arbitrary memory location
+    arguments: <address> <value>
+  power: 
+    subcommands: 
+      - power_ap
+      - power_buc
+      - power_lnb
+  powerMetrics: 
+    description: power values used
+    arguments: "[reset]"
+  powermgmt: 
+    description: power management information
+    arguments: TBD
+  pwmac: 
+    description: PseudoWire MAC control
+    arguments: ""
+  quit: 
+    description: Quit
+    arguments: ""
+  randSeedValue: 
+    description: Display the rand Seed Value
+    arguments: none
+  reboot: 
+    description: Reboot the board
+    arguments: "[soft | hard <addr>]"
+  remotestate: 
+    description: Print the state of the remote
+    arguments: ""
+  reporter: 
+    subcommands: 
+      - reporter_info
+      - reporter_event
+  rmtlock: 
+    subcommands: 
+      - rmtlock_status
+      - rmtlock_permlock
+  rx: 
+    subcommands: 
+      - rx_iflDC
+      - rx_send
+      - rx_bb
+      - rx_modcod
+      - rx_legs
+      - rx_addr
+      - rx_symrate
+      - rx_freq
+      - rx_info
+      - rx_acm
+      - rx_fsm
+      - rx_restart
+      - rx_redirect
+  satcom: 
+    subcommands: 
+      - satcom_info
+  service: 
+    subcommands: 
+      - service_list
+      - service_start
+      - service_stop
+      - service_restart
+  setdebuginroute: 
+    description: developer debug to set an 'oob' entry in frequency table
+    arguments: "index inrouteId freqInHz "
+  si: 
+    subcommands: 
+      - si_control
+      - si_table
+  sl: 
+    subcommands: 
+      - sl_dumpflags
+  sleep: 
+    subcommands: 
+      - sleep_now
+  spoof: 
+    description: Spoof Command
+    arguments: ""
+  spwp: 
+    description: SPWP command
+    arguments: ""
+  spwpslid: 
+    description: ""
+    arguments: ""
+  st: 
+    subcommands: 
+      - st_forceconfig
+      - st_info
+      - st_modcod
+  stb6100: 
+    subcommands: 
+      - stb6100_read
+      - stb6100_write
+  stv0900: 
+    subcommands: 
+      - stv0900_read
+      - stv0900_write
+  synth: 
+    description: Muck around with the ADRF6750
+    arguments: < poke <a,b> | peek <addr> | spi | init | mode<val> | sleep <0|1> | enable<0|1> >
+  thread: 
+    subcommands: 
+      - thread_list
+      - thread_info
+  tls: 
+    subcommands: 
+      - tls_info
+      - tls_disconnect
+  ts: 
+    subcommands: 
+      - ts_dump
+  tx: 
+    subcommands: 
+      - tx_iflDC
+      - tx_ifl10
+      - tx_info
+      - tx_freq
+      - tx_freq_sweep
+      - tx_vco_switch_freq
+      - tx_freq_hop
+      - tx_freq_ping_pong
+      - tx_vco_select
+      - tx_symrate
+      - tx_scale
+      - tx_offset
+      - tx_predistort
+      - tx_test_pn
+      - tx_uncoded_pn
+      - tx_test_nco
+      - tx_test_dc
+      - tx_imr
+      - tx_irqs
+      - tx_reset
+      - tx_on
+      - tx_off
+      - tx_page
+      - tx_airdelay
+      - tx_addr
+      - tx_atdmareset
+      - tx_power
+      - tx_refpower
+      - tx_freqtab
+      - tx_fsd
+  txq: 
+    subcommands: 
+      - txq_stats
+      - txq_config
+      - txq_reset
+  udps: 
+    subcommands: 
+      - udps_info
+  versions: 
+    description: Print platform version info
+    arguments: ""
+  wdog: 
+    description: Set the watchdog
+    arguments: ""

@@ -1,0 +1,490 @@
+= Command Groups = 
+== acm ==
+<div style="background:#d0d0c0;padding:5px">
+::acm_limit
+</div> 
+== acq ==
+<div style="background:#d0d0c4;padding:5px">
+::'''description:''' ACQ/UCP Control
+::'''args:''' acq {on | off | toggle}
+</div> 
+== adaptor ==
+<div style="background:#d0d0c8;padding:5px">
+::adaptor_stats
+</div> 
+== atdma ==
+<div style="background:#d0d0cc;padding:5px">
+::atdma_dumpCaptureBET
+::atdma_triggerCapture
+::atdma_UnitTest
+::atdma_subframeLeadinAdjust
+</div> 
+== beam ==
+<div style="background:#d0d0d0;padding:5px">
+::beam_switch
+</div> 
+== block ==
+<div style="background:#d0d0d4;padding:5px">
+::'''description:''' Prints memory block info
+::'''args:''' ""
+</div> 
+== board ==
+<div style="background:#d0d0d8;padding:5px">
+::board_info
+::board_features
+::board_limit
+</div> 
+== btp ==
+<div style="background:#d0d0dc;padding:5px">
+::btp_sof
+::btp_test
+::btp_fake
+::btp_arrival
+::btp_show_count
+::btp_stats
+</div> 
+== btpsToIgnore ==
+<div style="background:#d0d0e0;padding:5px">
+::'''description:''' sets number of btps To Ignore
+::'''args:''' n
+</div> 
+== channel ==
+<div style="background:#d0d0e4;padding:5px">
+::channel_list
+::channel_read
+</div> 
+== classifier ==
+<div style="background:#d0d0e8;padding:5px">
+::'''description:''' classifier command
+::'''args:''' ""
+</div> 
+== cliformat ==
+<div style="background:#d0d0ec;padding:5px">
+::'''description:''' set console output format
+::'''args:''' <text|json|jsonmin>
+</div> 
+== clouser ==
+<div style="background:#d0d0f0;padding:5px">
+::clouser_test
+</div> 
+== commands ==
+<div style="background:#d0d0f4;padding:5px">
+::'''description:''' Execute multiple commands separated by semicolons
+::'''args:''' command1; command2 [...]
+</div> 
+== controller ==
+<div style="background:#d0d0f8;padding:5px">
+::controller_get
+</div> 
+== dfoe ==
+<div style="background:#d0d0fc;padding:5px">
+::'''description:''' dfoe control
+::'''args:''' ""
+</div> 
+== dfoerxonly ==
+<div style="background:#d0d4c0;padding:5px">
+::'''description:''' Rx-Only Dynamic Features and Options exchange
+::'''args:''' ""
+</div> 
+== dhcp ==
+<div style="background:#d0d4c0;padding:5px">
+::'''description:''' DHCP server command
+::'''args:''' ""
+</div> 
+== DID ==
+<div style="background:#d0d4c0;padding:5px">
+::'''description:''' Show modem identification number
+::'''args:''' ""
+</div> 
+== diseqc ==
+<div style="background:#d0d4c0;padding:5px">
+::diseqc_init
+::diseqc_22K
+::diseqc_tx
+::diseqc_rx
+::diseqc_dump
+</div> 
+== dmesg ==
+<div style="background:#d0d4c0;padding:5px">
+::'''description:''' Logger messages
+::'''args:''' ""
+</div> 
+== dns ==
+<div style="background:#d0d4c0;padding:5px">
+::'''description:''' DNS control
+::'''args:''' ""
+</div> 
+== eth ==
+<div style="background:#d0d4c0;padding:5px">
+::eth_stats
+</div> 
+== EventDumper ==
+<div style="background:#d0d4c0;padding:5px">
+::'''description:''' Start Event Dumper
+::'''args:''' "[ip_addr [subFrameCountReportInterval] [numReports] [DeveloperMsgSelectFlags]] | off"
+</div> 
+== EventDumperDstUdpPort ==
+<div style="background:#d0d4c0;padding:5px">
+::'''description:''' UDP port where EventDumper sends X1 statistics
+::'''args:''' udpPortNum
+</div> 
+== events ==
+<div style="background:#d0d4c0;padding:5px">
+::'''description:''' Display worker statistics
+::'''args:''' ""
+</div> 
+== firmware ==
+<div style="background:#d0d4c0;padding:5px">
+::firmware_list
+::firmware_reboot
+::firmware_copy
+::firmware_compare
+::firmware_delete
+::firmware_markvalid
+::firmware_incstarts
+</div> 
+== flags ==
+<div style="background:#d0d4c0;padding:5px">
+::'''description:''' Get/set debugging flags
+::'''args:''' <on|off>
+</div> 
+== flash ==
+<div style="background:#d0d5c0;padding:5px">
+::flash_peek
+::flash_set
+::flash_del
+::flash_read
+::flash_write
+</div> 
+== freqErrsDebugDump ==
+<div style="background:#d0d5c0;padding:5px">
+::'''description:''' dump detected frequency programming mismatches
+::'''args:''' startIdx count
+</div> 
+== help ==
+<div style="background:#d0d5c0;padding:5px">
+::'''description:''' Show this help
+::'''args:''' ""
+</div> 
+== i2c ==
+<div style="background:#d0d5c0;padding:5px">
+::i2c_poke
+::i2c_peek
+</div> 
+== iDirect ==
+<div style="background:#d0d5c0;padding:5px">
+::iDirect_commands
+</div> 
+== inroute ==
+<div style="background:#d0d5c0;padding:5px">
+::inroute_power
+::inroute_clear
+</div> 
+== irq ==
+<div style="background:#d0d5c0;padding:5px">
+::irq_stats
+</div> 
+== l2 ==
+<div style="background:#d0d5c0;padding:5px">
+::l2_classifier
+</div> 
+== laninfo ==
+<div style="background:#d0d5c0;padding:5px">
+::'''description:''' View IP address/netmask
+::'''args:''' ""
+</div> 
+== led ==
+<div style="background:#d0d5c0;padding:5px">
+::'''description:''' Fiddle with LEDs
+::'''args:''' ""
+</div> 
+== leds ==
+<div style="background:#d0d5c0;padding:5px">
+::'''description:''' Read LEDs status
+::'''args:''' ""
+</div> 
+== ll ==
+<div style="background:#d0d5c0;padding:5px">
+::'''description:''' Link Layer control
+::'''args:''' ""
+</div> 
+== llchop ==
+<div style="background:#d0d5c0;padding:5px">
+::llchop_metric
+::llchop_short_headers
+::llchop_packing
+</div> 
+== log ==
+<div style="background:#d0d5c0;padding:5px">
+::'''description:''' Control logger
+::'''args:''' ""
+</div> 
+== mac ==
+<div style="background:#d0d5c0;padding:5px">
+::mac_stats
+</div> 
+== ncr ==
+<div style="background:#d0d5c0;padding:5px">
+::ncr_stats
+::ncr_freeze
+</div> 
+== net ==
+<div style="background:#d0d6c0;padding:5px">
+::net_udp
+::net_tcp
+</div> 
+== nominalInrouteId ==
+<div style="background:#d0d6c0;padding:5px">
+::'''description:''' shows which carrier is nominal for this remote
+::'''args:''' DEVELOPER ONLY
+</div> 
+== num ==
+<div style="background:#d0d6c0;padding:5px">
+::num_subframes
+</div> 
+== options ==
+<div style="background:#d0d6c0;padding:5px">
+::options_get
+::options_find
+::options_set
+::options_del
+::options_publish
+::options_read
+::options_write
+::options_active
+</div> 
+== os ==
+<div style="background:#d0d6c0;padding:5px">
+::os_time
+::os_delay
+</div> 
+== panic ==
+<div style="background:#d0d6c0;padding:5px">
+::'''description:''' This will make your board crash
+::'''args:''' ""
+</div> 
+== peek ==
+<div style="background:#d0d6c0;padding:5px">
+::'''description:''' Read an arbitrary number of values from an arbitrary memory location
+::'''args:''' <address> <len>
+</div> 
+== ping ==
+<div style="background:#d0d6c0;padding:5px">
+::'''description:''' ping a host
+::'''args:''' ping <address> <size> <num packets> <interval>
+</div> 
+== pkgrcv ==
+<div style="background:#d0d6c0;padding:5px">
+::pkgrcv_info
+</div> 
+== pm ==
+<div style="background:#d0d6c0;padding:5px">
+::pm_stats
+::pm_config
+::pm_arp
+::pm_history
+::pm_statsvlan
+</div> 
+== poke ==
+<div style="background:#d0d6c0;padding:5px">
+::'''description:''' Write an arbitrary value to an arbitrary memory location
+::'''args:''' <address> <value>
+</div> 
+== power ==
+<div style="background:#d0d6c0;padding:5px">
+::power_ap
+::power_buc
+::power_lnb
+</div> 
+== powerMetrics ==
+<div style="background:#d0d6c0;padding:5px">
+::'''description:''' power values used
+::'''args:''' "[reset]"
+</div> 
+== powermgmt ==
+<div style="background:#d0d6c0;padding:5px">
+::'''description:''' power management information
+::'''args:''' TBD
+</div> 
+== pwmac ==
+<div style="background:#d0d6c0;padding:5px">
+::'''description:''' PseudoWire MAC control
+::'''args:''' ""
+</div> 
+== quit ==
+<div style="background:#d0d6c0;padding:5px">
+::'''description:''' Quit
+::'''args:''' ""
+</div> 
+== randSeedValue ==
+<div style="background:#d0d7c0;padding:5px">
+::'''description:''' Display the rand Seed Value
+::'''args:''' none
+</div> 
+== reboot ==
+<div style="background:#d0d7c0;padding:5px">
+::'''description:''' Reboot the board
+::'''args:''' "[soft | hard <addr>]"
+</div> 
+== remotestate ==
+<div style="background:#d0d7c0;padding:5px">
+::'''description:''' Print the state of the remote
+::'''args:''' ""
+</div> 
+== reporter ==
+<div style="background:#d0d7c0;padding:5px">
+::reporter_info
+::reporter_event
+</div> 
+== rmtlock ==
+<div style="background:#d0d3c0;padding:5px">
+::rmtlock_status
+::rmtlock_permlock
+</div> 
+== rx ==
+<div style="background:#d0d3c0;padding:5px">
+::rx_iflDC
+::rx_send
+::rx_bb
+::rx_modcod
+::rx_legs
+::rx_addr
+::rx_symrate
+::rx_freq
+::rx_info
+::rx_acm
+::rx_fsm
+::rx_restart
+::rx_redirect
+</div> 
+== satcom ==
+<div style="background:#d0d3c0;padding:5px">
+::satcom_info
+</div> 
+== service ==
+<div style="background:#d0d3c0;padding:5px">
+::service_list
+::service_start
+::service_stop
+::service_restart
+</div> 
+== setdebuginroute ==
+<div style="background:#d0d3c0;padding:5px">
+::'''description:''' developer debug to set an 'oob' entry in frequency table
+::'''args:''' "index inrouteId freqInHz "
+</div> 
+== si ==
+<div style="background:#d0d3c0;padding:5px">
+::si_control
+::si_table
+</div> 
+== sl ==
+<div style="background:#d0d3c0;padding:5px">
+::sl_dumpflags
+</div> 
+== sleep ==
+<div style="background:#d0d3c0;padding:5px">
+::sleep_now
+</div> 
+== spoof ==
+<div style="background:#d0d3c0;padding:5px">
+::'''description:''' Spoof Command
+::'''args:''' ""
+</div> 
+== spwp ==
+<div style="background:#d0d3c0;padding:5px">
+::'''description:''' SPWP command
+::'''args:''' ""
+</div> 
+== spwpslid ==
+<div style="background:#d0d3c0;padding:5px">
+::'''description:''' ""
+::'''args:''' ""
+</div> 
+== st ==
+<div style="background:#d0d3c0;padding:5px">
+::st_forceconfig
+::st_info
+::st_modcod
+</div> 
+== stb6100 ==
+<div style="background:#d0d4c0;padding:5px">
+::stb6100_read
+::stb6100_write
+</div> 
+== stv0900 ==
+<div style="background:#d0d4c0;padding:5px">
+::stv0900_read
+::stv0900_write
+</div> 
+== synth ==
+<div style="background:#d0d4c0;padding:5px">
+::'''description:''' Muck around with the ADRF6750
+::'''args:''' < poke <a,b> | peek <addr> | spi | init | mode<val> | sleep <0|1> | enable<0|1> >
+</div> 
+== thread ==
+<div style="background:#d0d4c0;padding:5px">
+::thread_list
+::thread_info
+</div> 
+== tls ==
+<div style="background:#d0d4c0;padding:5px">
+::tls_info
+::tls_disconnect
+</div> 
+== ts ==
+<div style="background:#d0d4c0;padding:5px">
+::ts_dump
+</div> 
+== tx ==
+<div style="background:#d0d4c0;padding:5px">
+::tx_iflDC
+::tx_ifl10
+::tx_info
+::tx_freq
+::tx_freq_sweep
+::tx_vco_switch_freq
+::tx_freq_hop
+::tx_freq_ping_pong
+::tx_vco_select
+::tx_symrate
+::tx_scale
+::tx_offset
+::tx_predistort
+::tx_test_pn
+::tx_uncoded_pn
+::tx_test_nco
+::tx_test_dc
+::tx_imr
+::tx_irqs
+::tx_reset
+::tx_on
+::tx_off
+::tx_page
+::tx_airdelay
+::tx_addr
+::tx_atdmareset
+::tx_power
+::tx_refpower
+::tx_freqtab
+::tx_fsd
+</div> 
+== txq ==
+<div style="background:#d0d4c0;padding:5px">
+::txq_stats
+::txq_config
+::txq_reset
+</div> 
+== udps ==
+<div style="background:#d0d4c0;padding:5px">
+::udps_info
+</div> 
+== versions ==
+<div style="background:#d0d4c0;padding:5px">
+::'''description:''' Print platform version info
+::'''args:''' ""
+</div> 
+== wdog ==
+<div style="background:#d0d4c0;padding:5px">
+::'''description:''' Set the watchdog
+::'''args:''' ""

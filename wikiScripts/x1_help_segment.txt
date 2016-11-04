@@ -1,0 +1,39 @@
+
+  acm: 
+    subcommands: 
+      - acm_limit
+  acq: 
+    description: ACQ/UCP Control
+    arguments: acq {on | off | toggle}
+  adaptor: 
+    subcommands: 
+      - adaptor_stats
+  atdma: 
+    subcommands: 
+      - atdma_dumpCaptureBET
+      - atdma_triggerCapture
+      - atdma_UnitTest
+      - atdma_subframeLeadinAdjust
+  beam: 
+    subcommands: 
+      - beam_switch
+  block: 
+    description: Prints memory block info
+    arguments: ""
+  board: 
+    subcommands: 
+      - board_info
+      - board_features
+      - board_limit
+  btp: 
+    subcommands: 
+      - btp_sof
+      - btp_test
+      - btp_fake
+      - btp_arrival
+      - btp_show_count
+      - btp_stats
+  btpsToIgnore: 
+    description: sets number of btps To Ignore
+    arguments: n
+ 

@@ -1,0 +1,86 @@
+#!/usr/bin/env bash
+
+WARN_SCRIPT_DIR="/etc/profile.d"
+WARN_SCRIPT_PATH="/etc/profile.d/testUnderProgressWarn.sh"
+
+SUDO=sudo
+#Check if sudo is available. If so use it.
+type sudo >/dev/null 2>&1 || { SUDO=''; }
+
+
+# check whether profile.d exists
+if [ ! -d ${WARN_SCRIPT_DIR} ];then
+	echo "Profile.d folder doesn't exist... Creating it"
+	mkdir -p ${WARN_SCRIPT_DIR}
+	CREATED_PROFILE_D_DIR = true
+fi
+
+
+#see if a test exists
+if [ -e ${WARN_SCRIPT_PATH} ];then
+
+	echo " "
+	echo "Hello, There is a test currently running? would you like to end it"
+
+	read END_TEST
+	if [ $END_TEST == 'y' ] || [ $END_TEST == 'Y' ] || [ $END_TEST == "yes" ] || [ $END_TEST == "Yes" ]; then
+		$SUDO rm -f $WARN_SCRIPT_PATH || 
+			{ 
+				echo -e "Test warning wasn't successfully removed \n
+						You could try manually removing the file: ${WARN_SCRIPT_PATH} \n" 
+			}
+
+		# if profile.d is empty, remove it
+		if [ ! "$(ls -A $WARN_SCRIPT_DIR)" ]; then
+			echo "Profile.d folder is empty... Removing it"
+			rm -rf ${WARN_SCRIPT_DIR}
+		fi
+
+		#make sure the file isn't there anymore
+		if [ ! -e ${WARN_SCRIPT_PATH} ];then
+			echo "Test warning removed successfully."
+			exit 1
+		else
+			echo -e "Test warning wasn't successfully removed \n
+					You could try manually removing the file: ${WARN_SCRIPT_PATH} \n" 
+		fi
+		
+	else
+		echo "I don't really know why I asked, there is really no other option."
+		echo "	I'm exiting, THE TEST WARNING IS STILL ACTIVE!"
+		exit 1
+	fi
+else
+	echo -e "Hello, 
+		There are currently no tests running, would you like to add a test?"
+
+	read CREATE_TEST
+	if [ $CREATE_TEST == 'y' ] || [ $CREATE_TEST == 'Y' ] || [ $CREATE_TEST == "yes" ] || [ $CREATE_TEST == "Yes" ]; then
+		echo "Enter your name: "
+		read TEST_AUTHOR
+		echo "Enter the name of the test: "
+		read TEST_NAME
+		echo " "
+		# echo the echo command into the script that will be run when a user logs in
+		echo "
+		echo -e \"\n\n
+		=========================================================================
+		 ALERT! $TEST_AUTHOR is running a \"${TEST_NAME}\" on this machine! 
+		 The test began at: $(date).
+
+		 So don't do anything rash! \n
+		 \t\t     ~ Consider yourself warned 
+		==========================================================================\n\""  | 
+													#gotta use tee for sudo perms yo
+													$SUDO tee ${WARN_SCRIPT_PATH} > /dev/null 
+
+		#verify file was actually created successfully
+		if [ -e ${WARN_SCRIPT_PATH} ];then
+			echo "Test warning generated successfully, any user who logs in will see it"
+		fi
+
+	else
+		echo -e "\n Ok, well. That is really all I do, its been nice chatting though. Goodbye \n"
+		exit 1
+	fi
+fi
