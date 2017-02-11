@@ -19,7 +19,7 @@ client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
 
-client.connect("192.168.0.199", 1883, 60)
+client.connect("192.168.1.199", 1883, 60)
 
 print "publishing message"
 ret = client.publish("/wifiButtons_SOMEHASH", '{"buttonLed1":0}')
