@@ -33,7 +33,8 @@ function LaunchStream () {
 	echo "============================================================" |tee -a $LOG_FILE
 	echo "= Launching stream and saving to ${CURRENT_DIR_NAME}"        |tee -a $LOG_FILE
 	echo "============================================================" |tee -a $LOG_FILE
-	echo "$(date +%Y-%m-%d_%H-%M-%S) starting avconv" > $AVCONV_LOG_FILE # Because we need some space
+	echo "" >> $AVCONV_LOG_FILE
+	echo "$(date +%Y-%m-%d_%H-%M-%S) starting avconv" >> $AVCONV_LOG_FILE # Because we need some space
 	avconv -v warning -f video4linux2 -r 25 -s 1280x960 -i /dev/video0 ${CURRENT_DIR_NAME}/stream${STREAM_NUM}.avi &>> $AVCONV_LOG_FILE &
 
 	PID=$!
@@ -85,7 +86,8 @@ do
 
 	# Merge any and all avi files into final filename
 	cd $CURRENT_DIR_NAME
-	avimerge -i $(ls *.avi) -o $FINAL_FILE_NAME || {
+
+	mencoder -oac copy -ovc copy $(ls *.avi) -o $FINAL_FILE_NAME || {
 		echo "$(date +%Y-%m-%d_%H-%M-%S): oof! Failed to merge avi files... I will let this slide for now" |tee -a $LOG_FILE
 	}
 	cd -
