@@ -1,0 +1,116 @@
+sudo JLinkGDBServer -device iMX35
+target remote localhost:2331
+set $pc=0x189860
+load /tftpboot/neverDelete/s2bl_D1-06-19-000-0-D.axf
+load /tftpboot/custom/s2bl_D1-06-18-002-0-C.axf
+set $pc=0x189860
+c
+ctrl-c
+load /tftpboot/neverDelete/uboot_2015_26Oct2016.elf
+load /home/bclouser/workspace/tablesafe/rail-uboot_2015/u-boot
+
+# jtag uboot. chris' version (known good)
+load /tftpboot/latest/uboot_2015_26Oct2016.elf
+load /home/bclouser/workspace/tablesafe/rail-uboot_2015/u-boot
+
+
+setenv bootargs 'console=ttyS0,115200n8r mem=256M bootmemheap ro bootdelay=5 root=ubi0_0 rootfstype=ubifs bcm5892-nand.s_u8RFSLock=4 ubi.mtd=4 uboot-env=01-04-00-003-0'
+setenv nandboot 'nand read 0x40000000 0x140000 0x400000; bootm 0x40000000'
+
+
+[write s2bl]
+tftpboot 0x40000000 custom/pkg_2017-04-18/s2bl_D1-05-07-003-0-C
+tftpboot 0x40000000 s2bl/s2bl_D1-06-19-000-0-C
+tftpboot 0x40000000 HQ-5/s2bl_D1-06-21-001-0-E
+nand erase 0x00 0x20000
+nand write 0x40000000 0x00 0x20000
+
+[write S2BL-ext]
+tftpboot 0x40000000 custom/pkg_2017-04-18/s2bl-ext_D1-05-07-003-0-C
+tftpboot 0x40000000 s2bl/s2bl-ext_D1-06-19-000-0-C
+tftpboot 0x40000000 HQ-5/s2bl-ext_D1-06-21-001-0-E
+nand erase 0x20000 0x20000
+nand write 0x40000000 0x20000 0x20000
+
+[write uboot-env]
+tftpboot 0x40000000 ryerson/uboot-env/uboot-env.bin
+tftpboot 0x40000000 custom/uboot-env.bin
+tftpboot 0x40000000 uboot-env_01-05-17-002-1-A/uboot-env.bin
+tftpboot 0x40000000 uboot-env/uboot-env.bin
+nand erase 0x60000 0x20000
+nand write 0x40000000 0x60000 0x20000
+
+[write uboot]
+tftpboot 0x40000000 custom/pkg_2017-04-18/uboot_01-05-07-001-0-C
+tftpboot 0x40000000 custom/uboot_clouser_custom
+tftpboot 0x40000000 ryerson/uboot_01-06-19-003-1-E
+
+nand erase 0x80000 0xC0000
+nand write 0x40000000 0x80000 0xC0000
+
+dhcp;tftpboot 0x40000000 custom/uboot_custom_bclouser;nand erase 0x80000 0xC0000;nand write 0x40000000 0x80000 0xC0000;
+
+[write kernel]
+tftpboot 0x40000000 HQ-5/kernel_D1-06-22-044-0-E
+tftpboot 0x40000000 custom/latest_kernel.bin
+tftpboot 0x40000000 custom/tftpboot/custom/clouser_custom_kernel_uImage
+
+nand erase 0x140000 0x400000  //partition 2
+nand erase 0x540000 0x400000  //partition 3
+nand write 0x40000000 0x140000 0x400000  //partition 2
+nand write 0x40000000 0x540000 0x400000  // partition 3
+
+[write root filesystem]
+tftpboot 0x40000000 custom/pkg_2017-04-18/rootfs_D1-05-14-061-0-C
+tftpboot 0x40000000 HQ-5/rootfs_D1-06-22-044-0-E
+tftpboot 0x40000000 custom/latest_fs.ubiimg
+
+nand erase 0x940000 0x10000000  // for regular nand location (partition 4)
+nand erase 0x10940000 0x10000000 // for alternate nand location (partition 5)
+
+//THIS SIZE!!! needs to come from the size of the actual file which the tftpboot command will indicate (or likely just be bigger than the size of the file.)
+nand write 0x40000000 0x940000 4f00000 // for regular
+nand write 0x40000000 0x10940000 4f40000 // for alternate
+
+[write signature block]
+tftpboot 0x40000000 ryerson/A5-M1-HM-24_NONE_sigblock
+nand erase 0x40000 0x20000
+nand write 0x40000000 0x40000 0x20000
+
+
+splashimage
+
+[write kernel]
+tftpboot 0x40000000 splashimage
+nand erase 0x140000 0x400000
+nand write 0x40000000 0x140000 0x400000
+
+
+
+setenv bootargs console=ttyS0,115200n8r mem=256M bootmemheap ro bootdelay=1 root=ubi0_0 rootfstype=ubifs bcm5892-nand.s_u8RFSLock=4 ubi.byp=4 ubi.mtd=4 uboot-env=01-05-14-000-0-A
+setenv bootargs console=ttyS0,115200n8r mem=256M bootmemheap ro bootdelay=1 root=ubi0_0 rootfstype=ubifs bcm5892-nand.s_u8RFSLock=5 ubi.byp=5 ubi.mtd=5 uboot-env=01-05-14-000-0-A
+
+
+setenv nandboot 'nand read 0x40000000 0x140000 0x400000; bootm 0x40000000'
+setenv nandboot 'nand read 0x40000000 0x540000 0x400000; bootm 0x40000000'
+
+
+setenv postcritical 'i2c_smartcard i2c_accelerometer i2c_led0 i2c_led1 adc0 adc3 adc1'
+setenv postcritical '2c_smartcard i2c_accelerometer i2c_led0 i2c_led1 adc0'
+
+nand read.raw 0x00400000 0x3FFC0000 0x20000
+
+nand read.oob 0 0x3FF80000 8
+nand read 0 0x3FF80000 0x20000
+
+nand dump.oob 0x3FF80000
+nand dump.oob 0x3FFA0000
+nand dump.oob 0x3FFC0000
+nand dump.oob 0x3FFE0000
+
+
+
+nand dump.oob 0x3FF60000
+
+nand scrub [-y] off size | scrub.part partition | scrub.chip
+nand scrub 0x3FF60000 0x20000
