@@ -22,7 +22,7 @@ client.on_message = on_message
 client.connect("192.168.1.199", 1883, 60)
 
 print "publishing message"
-ret = client.publish("/bensRoom/hdmiSelector1", '{"command":"hdmi1"}')
+ret = client.publish("/plant-light/ctrl", '1')
 
 print "Publishe status = " + str(ret[0])
 
