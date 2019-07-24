@@ -4,6 +4,7 @@
 ## and passed the specific profile to launch as argument 1
 ## The whole point is to launch a fresh firefox if none are running,
 ## and launch any subsequent instances with the --no-remote flag
+## Pretty good post about --no-remote here: https://www.brycevandyk.com/dissecting-firefoxs-no-remote-option/
 
 ## The files in /usr/share/applications/{firefox-personal.desktop,firefox-work.desktop}
 ## Have exec lines like: Exec=/usr/local/bin/firefox-launch.sh  Personal
